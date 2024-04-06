@@ -49,8 +49,10 @@ imgangle = np.angle(imgfft)
 
 # 展示幅度和相位图片
 plt.subplot(1, 2, 1)
+plt.title('fudu')
 plt.imshow(imgabs)
 plt.subplot(1, 2, 2)
+plt.title('xiangwei')
 plt.imshow(imgangle)
 plt.show()
 
@@ -61,15 +63,21 @@ img1 = np.fft.ifft2(imgabs)
 img1[img1 > 255] = 255
 
 plt.subplot(1, 2, 1)
+plt.title('origin')
 plt.imshow(abs(img0))
 plt.subplot(1, 2, 2)
+plt.title('fudu')
 plt.imshow(abs(img1))
+plt.savefig(os.path.join(save_root, 'fudu.jpg'))
 plt.show()
 
 # 用相位恢复图像
 img2 = np.fft.ifft2(imgfft / imgabs)
 plt.subplot(1, 2, 1)
+plt.title('origin')
 plt.imshow(abs(img0))
 plt.subplot(1, 2, 2)
+plt.title('xiangwei')
 plt.imshow(abs(img2))
+plt.savefig(os.path.join(save_root, 'xiangwei.jpg'))
 plt.show()
