@@ -98,7 +98,7 @@ output_wave = mid_wave * 0.33 + high_wave * 0.33 + low_wave * 0.33
 start_idx, end_idx = 0, 80
 threshold = 20000
 f, t, Sxx = spectrogram(output_wave, fs = sample_rate, nperseg=2048, nfft=2048)
-# print(np.shape(f), np.shape(t), np.shape(Sxx))
+# print(np.shape(f), np.shape(t), np.shape(Sxx))1
 
 Sxx[Sxx > threshold] = threshold
 plt.pcolormesh(t, f[start_idx: end_idx], Sxx[start_idx: end_idx,:])
